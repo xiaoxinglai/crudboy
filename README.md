@@ -1,0 +1,2 @@
+# crudboy
+计划是一个提高crud效率的idea插件，目前实现了在代码中直接testSql以及根据模版生成DO Mapper xml等
