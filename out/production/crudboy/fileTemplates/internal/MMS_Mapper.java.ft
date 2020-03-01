@@ -1,0 +1,10 @@
+#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+
+
+/**
+ * @author ${USER} E-mail:${E_MAIL}
+ * @version 创建时间：${DATE} ${TIME}
+ *     ${doCalssName}
+ */
+public interface ${doCalssName}Mapper {
+}

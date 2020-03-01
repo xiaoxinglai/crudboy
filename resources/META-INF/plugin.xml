@@ -1,0 +1,74 @@
+<idea-plugin>
+  <id>com.github.crudboy</id>
+  <name>crudboy</name>
+  <version>1.0</version>
+  <vendor email="291826425@qq.com" url="http://www.github.com">github</vendor>
+
+  <description><![CDATA[
+      一个提高增删改查效率的工具.<br>
+      <em>curd fast</em>
+    ]]></description>
+
+  <change-notes><![CDATA[
+      自定义生成sql，快速验证sql<br>
+      <em>自定义生成sql，快速验证sql</em>
+    ]]>
+  </change-notes>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="145.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+
+      <applicationService serviceInterface="com.lxx.crudboy.config.configurable.CrudBoySettings" serviceImplementation="com.lxx.crudboy.config.configurable.CrudBoySettings"/>
+
+      <applicationConfigurable instance="com.lxx.crudboy.config.configurable.CrudBoyConfigurable"/>
+  </extensions>
+
+
+    <actions>
+        <action id="TestSQL" class="com.lxx.crudboy.action.TestSqlAction" text="TestSQL" description="测试sql">
+            <add-to-group group-id="EditorPopupMenu.GoTo" anchor="first"/>
+        </action>
+        <action id="TestSqlNoParam" class="com.lxx.crudboy.action.TestSqlValid" text="TestSqlValid"
+                description="测试sql是否有效">
+            <add-to-group group-id="EditorPopupMenu.GoTo" anchor="first"/>
+        </action>
+
+        <action id="helloworld" class="com.lxx.crudboy.action.HelloWorldAction" text="helloworld"
+                description="say hello world">
+            <add-to-group group-id="GenerateGroup" anchor="last"/>
+        </action>
+
+        <action id="CreateService" class="com.lxx.crudboy.action.CreateServiceAction" text="CreateService">
+            <add-to-group group-id="NewGroup" anchor="after" relative-to-action="NewGroup1"/>
+        </action>
+        <action id="CreateDO" class="com.lxx.crudboy.action.CreateDOAction" text="CreateDO">
+            <add-to-group group-id="NewGroup" anchor="after" relative-to-action="NewGroup1"/>
+        </action>
+        <action id="CreateDTO" class="com.lxx.crudboy.action.CreateDTOAction" text="CreateDTO">
+            <add-to-group group-id="NewGroup" anchor="after" relative-to-action="NewGroup1"/>
+        </action>
+        <action id="CreateMapper" class="com.lxx.crudboy.action.CreateMapperAction" text="CreateMapper">
+            <add-to-group group-id="NewGroup" anchor="after" relative-to-action="NewGroup1"/>
+        </action>
+        <action id="CreateMapperXml" class="com.lxx.crudboy.action.CreateMapperXmlAction" text="CreateMapperXml">
+            <add-to-group group-id="NewGroup" anchor="after" relative-to-action="NewGroup1"/>
+        </action>
+
+    </actions>
+
+    <application-components>
+        <!-- Add your application components here -->
+        <component>
+            <implementation-class>com.lxx.crudboy.action.CodeComponent</implementation-class>
+        </component>
+    </application-components>
+</idea-plugin>
